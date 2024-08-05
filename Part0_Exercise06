@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: User writes a note and clicks the Save button
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: { "content": "New note", "date": "2024-8-5" }
+    deactivate server
+
+    Note right of browser: The browser adds the new note to the existing notes without reloading the page
+
+    browser->>browser: Render the new note in the list of notes
